@@ -1,0 +1,271 @@
+{
+    "type": "page",
+    "title": "用户列表页面",
+    "body": [
+      {
+        "type": "crud",
+        "syncLocation": false,
+        // "api": {
+        //   "method": "get",
+        //   "url": ""
+        // },
+        "columns": [
+          {
+            "name": "id",
+            "label": "ID",
+            "type": "text",
+            "id": "u:22fdcc7de01e"
+          },
+          {
+            "name": "name",
+            "label": "姓名",
+            "type": "text",
+            "id": "u:a8e4b8e1598d"
+          },
+          {
+            "type": "text",
+            "label": "年龄",
+            "name": "age",
+            "id": "u:44001c540e01"
+          },
+          {
+            "type": "text",
+            "label": "地址",
+            "name": "address",
+            "id": "u:ef5feec2ea5e"
+          },
+          {
+            "type": "text",
+            "label": "标签",
+            "name": "tags",
+            "id": "u:037958d91119"
+          },
+          {
+            "type": "operation",
+            "label": "操作",
+            "buttons": [
+              {
+                "type": "button",
+                "label": "删除",
+                "actionType": "ajax",
+                "level": "link",
+                "className": "text-danger",
+                "confirmText": "确定要删除？",
+                "api": {
+                  "method": "delete",
+                  "url": "http://localhost:3001/api/users/${id}"
+                },
+                "editorSetting": {
+                  "behavior": "delete"
+                },
+                "id": "u:0645cf692419"
+              },
+              {
+                "label": "查看",
+                "type": "button",
+                "actionType": "dialog",
+                "level": "link",
+                "editorSetting": {
+                  "behavior": "view"
+                },
+                "dialog": {
+                  "title": "查看详情",
+                  "body": {
+                    "type": "form",
+                    // "api": "xxx/update",
+                    "body": [
+                      {
+                        "name": "id",
+                        "label": "ID",
+                        "type": "static"
+                      },
+                      {
+                        "name": "name",
+                        "label": "姓名",
+                        "type": "static"
+                      },
+                      {
+                        "label": "年龄",
+                        "name": "age",
+                        "type": "static"
+                      },
+                      {
+                        "label": "地址",
+                        "name": "address",
+                        "type": "static"
+                      },
+                      {
+                        "label": "标签",
+                        "name": "tags",
+                        "type": "static"
+                      }
+                    ]
+                  }
+                },
+                "id": "u:6ed7d4d48d89"
+              },
+              {
+                "label": "编辑",
+                "type": "button",
+                "actionType": "dialog",
+                "level": "link",
+                "editorSetting": {
+                  "behavior": "update"
+                },
+                "dialog": {
+                  "title": "编辑",
+                  "body": [
+                    {
+                      "type": "form",
+                      "api": {
+                        "method": "put",
+                        "url": "http://localhost:3001/api/users/${id}",
+                        "requestAdaptor": "",
+                        "adaptor": "",
+                        "messages": {},
+                        "dataType": "json"
+                      },
+                      "body": [
+                        {
+                          "type": "input-text",
+                          "name": "id",
+                          "id": "u:61e08eb22d59",
+                          "label": "ID"
+                        },
+                        {
+                          "name": "name",
+                          "label": "姓名",
+                          "type": "input-text",
+                          "id": "u:683ac8b448cd"
+                        },
+                        {
+                          "name": "age",
+                          "label": "年龄",
+                          "type": "input-text",
+                          "id": "u:1e925dcde38b"
+                        },
+                        {
+                          "label": "地址",
+                          "name": "address",
+                          "type": "input-text",
+                          "id": "u:e35e12a10347"
+                        },
+                        {
+                          "label": "标签",
+                          "name": "tags",
+                          "type": "input-text",
+                          "id": "u:58adda267619"
+                        }
+                      ],
+                      "id": "u:349c6c6b103d",
+                      "actions": [
+                        {
+                          "type": "submit",
+                          "label": "提交",
+                          "primary": true
+                        }
+                      ],
+                      "feat": "Insert",
+                      "dsType": "api"
+                    }
+                  ],
+                  "type": "dialog",
+                  "id": "u:edc16234d602",
+                  "actions": [
+                    {
+                      "type": "button",
+                      "actionType": "cancel",
+                      "label": "取消",
+                      "id": "u:55ec6f5d0c1d"
+                    },
+                    {
+                      "type": "button",
+                      "actionType": "confirm",
+                      "label": "确定",
+                      "primary": true,
+                      "id": "u:640dcfec1b5a"
+                    }
+                  ]
+                },
+                "id": "u:326bdeb1eac2"
+              }
+            ],
+            "id": "u:66d49fa0979f"
+          }
+        ],
+        "data":{
+          items:[
+            {
+              "id": "1",
+              "name": "John",
+              "age": 18,
+              "address": "New York No. 1 Lake Park",
+              "tags": "nice"
+            },
+            {
+              "id": "2",
+              "name": "Jim",
+              "age": 24,
+              "address": "London No. 1 Lake Park",
+              "tags": "loser"
+            }
+          ]
+        },
+        "bulkActions": [],
+        "itemActions": [],
+        "headerToolbar": [
+          {
+            "label": "新增",
+            "type": "button",
+            "actionType": "dialog",
+            "level": "primary",
+            "editorSetting": {
+              "behavior": "create"
+            },
+            "dialog": {
+              "title": "新增",
+              "body": {
+                "type": "form",
+                "api": {
+                  "method": "post",
+                  "url": "http://localhost:3001/api/users"
+                },
+                "body": [
+                  {
+                    "type": "input-text",
+                    "name": "id",
+                    "type":"hidden",
+                    "label": "ID"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "name",
+                    "label": "姓名"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "age",
+                    "label": "年龄"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "address",
+                    "label": "地址"
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "tags",
+                    "label": "标签"
+                  }
+                ]
+              }
+            },
+            "id": "u:48c38a150e9e"
+          },
+          "bulkActions"
+        ],
+        "id": "u:e83f0218dd1d"
+      }
+    ],
+    "id": "u:33e8b550c131"
+  }
