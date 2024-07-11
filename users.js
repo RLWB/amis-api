@@ -19,7 +19,6 @@ router.post('/users', (req, res) => {
     if (!req.body.name || !req.body.age || !req.body.address || !req.body.tags) {
         return res.status(400).json({ code: 100, msg: 'Missing required fields' });
     }
-
     // 使用参数化查询来防止SQL注入
     const insertQuery = 'INSERT INTO users (name, age, address, tags) VALUES (?, ?, ?, ?)';
     pool.query(insertQuery, [req.body.name, req.body.age, req.body.address, req.body.tags], (error, results, fields) => {
@@ -27,7 +26,6 @@ router.post('/users', (req, res) => {
             // 插入数据失败
             return res.status(500).json({ code: 100, msg: error.message });
         }
-
         // 插入数据成功
         res.json({ code: 200, msg: '添加成功' });
 
@@ -72,8 +70,7 @@ router.get('/users', (req, res) => {
 
 // 删除用户
 router.delete('/users/:id', (req, res) => {
-    const userId = req.params.id; // 从URL参数中获取用户ID
-
+    const userId = req.params.id; 
     // 构造删除用户的SQL语句
     const query = 'DELETE FROM users WHERE id = ?';
 
